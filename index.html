@@ -9,13 +9,13 @@
   </head>
 
   <!-- Quiz Header -->
-  <header class="header">
-      <div class="viewScores">
+  <header class="header" id="header">
+      <div class="viewScores" id="viewScores">
       <a href="#scoreboard">View Scoreboard</a>
-      <div class="timer">Time:75</div>
+      <div class="timer" id="timer">Time:75</div>
   </header>
 
-  <section class="quiz-intro">
+  <section class="quiz-intro" id="quiz-intro">
     <h1>Coding Quiz Challenge</h1>
     <p>
       Choose and submit your answer to the timed multiple choice quiz. Add your
@@ -24,36 +24,37 @@
       >
     </p>
 
-    <button type="button" class="start">Start Quiz</button>
+    <button type="button" class="start-btn" id="start-btn">Start Quiz</button>
   </section>
 
   <!-- Quiz Box -->
-  <section class="quizContainer">
-      <h1 class="question">Question:</h1>
-        <div class="options">
-            <button id="1">Answer 1</button>
-            <button id="2">Answer 2</button>
-            <button id="3">Answer 3</button>
+  <section class="quizContainer" id="quizContainer">
+      <h1 class="question" id="question">Question:</h1>
+        <div class="options" id="options">
+            <button id="1">Option 1</button>
+            <button id="2">Option 2</button>
+            <button id="3">Option 3</button>
        </div>
-  </section>
+  
 
-  <div class="quizMessage"></div>
+  <div class="quizMessage" id="quizMessage"></div>
 
+</section>
 
   <!-- Complete Page -->
-  <div class="userScore">
+  <section class="userScore" id="userScore">
     <h1>Complete</h1>
-    <input type="text" placeholder="Enter you initials" name="initials" id="initials"/>
-    <button type="submit" class="scoreSubmit">Submit</button>
-  </div>
+    <input type="text" name="initials" id="initials" placeholder="Enter your initials:"  />
+    <button type="submit" class="scoreSubmit-btn" id="scoreSubmit-btn">Submit</button>
+  </section>
 
   <!-- Scoreboard Page -->
-  <div class="scoreboard" id="scoreboard">
+  <section class="scoreboard" id="scoreboard">
     <h1>Highscores</h1>
 
-    <button type="button" class="return">Return</button>
-    <button type="button" class="clear">Clear Scores</button>
-  </div>
+    <button type="button" class="return-btn" id="return-btn">Return</button>
+    <button type="button" class="clear-btn" id="clear-btn">Clear Scores</button>
+  </section>
 
   <body>
     <script src="./assets/js/script.js"></script>

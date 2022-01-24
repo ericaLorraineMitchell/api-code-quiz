@@ -1,3 +1,10 @@
+var viewScores = document.getElementById("#scoreboard");
+
+var timer = document.getElementById("#timer");
+var timeLeft = 75;
+
+var startButton = document.getElementById("#start-btn");
+
 var quizQuestions = [
   {
     question:
@@ -48,6 +55,6 @@ var quizQuestions = [
 
 var score = 0;
 
-var timer = document.querySelector(".timer");
-var timeLeft = 75;
+startButton.addEventListener("click", startQuiz);
 
+function startQuiz() {}
