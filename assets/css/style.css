@@ -1,0 +1,17 @@
+.quiz-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+/*Quiz Question Styling*/
+.options {
+  display: flex;
+  flex-direction: column;
+  align-items: space-between;
+  padding: 10px;
+  border-bottom: 1px solid lightgray;
+}
