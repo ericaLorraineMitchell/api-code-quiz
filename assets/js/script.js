@@ -1,10 +1,12 @@
-var viewScores = document.getElementById("#scoreboard");
+var viewScores = document.getElementById("scoreboard");
 
-var timer = document.getElementById("#timer");
+var timerEl = document.getElementById("timer");
 var timeLeft = 75;
 
-var startButton = document.getElementById("#start-btn");
+var quizIntro = document.getElementById("quiz-intro");
+var startButton = document.getElementById("start-btn");
 
+var quizContainer = document.getElementById("quizContainer");
 var quizQuestions = [
   {
     question:
@@ -52,9 +54,57 @@ var quizQuestions = [
     ],
   },
 ];
+var questionIndex = 0;
 
+var question = document.getElementById("question");
+var optionButton = document.getElementById("options");
 var score = 0;
 
-startButton.addEventListener("click", startQuiz);
+var quizMessage = document.getElementById("quizMessage");
 
-function startQuiz() {}
+var userInitials = document.getElementById("userInitials");
+var userScore = JSON.parse(localStorage.getItem("userScore"));
+var scoreSubmit = document.getElementById("scoreSubmit-btn");
+
+var returnButton = document.getElementById("return-btn");
+var clearButton = document.getElementById("clear-btn");
+
+//Start Quiz
+function startGame() {
+  quizIntro.classList.add("hide");
+  quizContainer.classList.remove("hide");
+}
+
+//Start Timer
+startButton.addEventListener("click", function () {
+  var timerInterval = setInterval(function () {
+    timeLeft--;
+    timerEl.textContent = "Time:" + timeLeft;
+
+    if (timeLeft === 0) {
+      clearInterval(timerInterval);
+    }
+  }, 1000);
+
+  startGame();
+  showQuestion();
+});
+
+//Show Question and Answer Options
+function showQuestion() {
+  question.textContent = quizQuestions[questionIndex].question;
+  console.log(quizQuestions[questionIndex]);
+  console.log(quizQuestions[questionIndex].question);
+  console.log(quizQuestions[questionIndex].answers[1]);
+}
+
+//Answer Options - Incorrect Answer Takes 10 secs From Timer
+// questionIndex++;
+//Move to Next Question
+//Save score with Timer at 0 with all questions answered
+
+//Save initials and Timer score
+
+//Return to Intro Page
+
+//Clear User Scores
