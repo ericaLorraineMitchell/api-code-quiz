@@ -90,25 +90,39 @@ startButton.addEventListener("click", function () {
 
   startGame();
   showQuestion();
-  showOptions();
+  // showOptions();
 });
 
 //Show Question and Answer Options
 function showQuestion() {
   questionEl.textContent = quizQuestions[questionIndex].question;
-  for (i = 0; i < questionIndex.length; i++) {
+
+  optionButton.textContent =
+    quizQuestions[answersIndex].answers[optionsIndex].options;
+
+  for (var i = 0; i < quizQuestions.length; i++) {
+    for (var j = 0; j < quizQuestions[i].length; j++) {
+      console.log(quizQuestions[i][j].question);
+      optionButton *= quizQuestions[i][j];
+    }
+    // optionsIndex++;
     // questionIndex++;
-    console.log([questionIndex].question[i]);
+    // console.log(quizQuestions[i].question);
   }
   // console.log(quizQuestions[questionIndex]);
   // console.log(quizQuestions[questionIndex].question);
 }
 
-function showOptions() {
-  optionButton.textContent =
-    quizQuestions[answersIndex].answers[optionsIndex].options;
-  // console.log(quizQuestions[answersIndex].answers[optionsIndex].options);
-}
+// function showOptions() {
+//   optionButton.textContent =
+//     quizQuestions[answersIndex].answers[optionsIndex].options;
+
+//   for (var i = 0; i < quizQuestions.length; i++) {
+//     // optionsIndex++;
+//     console.log(quizQuestions[i].answers[optionsIndex].options);
+//   }
+//   // console.log(quizQuestions[answersIndex].answers[optionsIndex].options);
+// }
 
 //Move to Next Question
 // optionsIndex++;
