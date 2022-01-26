@@ -96,7 +96,10 @@ startButton.addEventListener("click", function () {
 //Show Question and Answer Options
 function showQuestion() {
   questionEl.textContent = quizQuestions[questionIndex].question;
-
+  for (i = 0; i < questionIndex.length; i++) {
+    // questionIndex++;
+    console.log([questionIndex].question[i]);
+  }
   // console.log(quizQuestions[questionIndex]);
   // console.log(quizQuestions[questionIndex].question);
 }
@@ -104,7 +107,7 @@ function showQuestion() {
 function showOptions() {
   optionButton.textContent =
     quizQuestions[answersIndex].answers[optionsIndex].options;
-  console.log(quizQuestions[answersIndex].answers[optionsIndex].options);
+  // console.log(quizQuestions[answersIndex].answers[optionsIndex].options);
 }
 
 //Move to Next Question
@@ -123,15 +126,11 @@ function showOptions() {
 // //Save initials and Timer score
 // function savedScores() {}
 
-
-
-
 // scoreSubmit.addEventListener("click", function (event) {
 //   event.preventDefault()
 //   var initials = document.querySelector("#userInitials").value;
 //   savedScores(initials);
 // });
-
 
 // //View Scoreboard
 // viewScores.addEventListener("click", savedScores);
