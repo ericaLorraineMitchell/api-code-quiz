@@ -55,9 +55,11 @@ var quizQuestions = [
   },
 ];
 var questionIndex = 0;
+var answersIndex = 0;
+var optionsIndex = 0;
 
-var question = document.getElementById("question");
-var optionButton = document.getElementById("options");
+var questionEl = document.getElementById("question");
+var optionButton = document.getElementById("option-btn");
 var score = 0;
 
 var quizMessage = document.getElementById("quizMessage");
@@ -88,23 +90,52 @@ startButton.addEventListener("click", function () {
 
   startGame();
   showQuestion();
+  showOptions();
 });
 
 //Show Question and Answer Options
 function showQuestion() {
-  question.textContent = quizQuestions[questionIndex].question;
-  console.log(quizQuestions[questionIndex]);
-  console.log(quizQuestions[questionIndex].question);
-  console.log(quizQuestions[questionIndex].answers[1]);
+  questionEl.textContent = quizQuestions[questionIndex].question;
+
+  // console.log(quizQuestions[questionIndex]);
+  // console.log(quizQuestions[questionIndex].question);
 }
 
-//Answer Options - Incorrect Answer Takes 10 secs From Timer
-// questionIndex++;
+function showOptions() {
+  optionButton.textContent =
+    quizQuestions[answersIndex].answers[optionsIndex].options;
+  console.log(quizQuestions[answersIndex].answers[optionsIndex].options);
+}
+
 //Move to Next Question
+// optionsIndex++;
+// questionIndex++;
+
+//Answer Message - Incorrect Answer Takes 10 secs From Timer
+// if (answers == "true") {
+//   quizMessage.textContent = "Correct Answer";
+// } else {
+//   quizMessage.textContent = "Incorrect";
+//   timeLeft -= 10;
+// }
 //Save score with Timer at 0 with all questions answered
 
-//Save initials and Timer score
+// //Save initials and Timer score
+// function savedScores() {}
 
-//Return to Intro Page
 
-//Clear User Scores
+
+
+// scoreSubmit.addEventListener("click", function (event) {
+//   event.preventDefault()
+//   var initials = document.querySelector("#userInitials").value;
+//   savedScores(initials);
+// });
+
+
+// //View Scoreboard
+// viewScores.addEventListener("click", savedScores);
+
+// //Return to Intro Page
+
+// //Clear User Scores

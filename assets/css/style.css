@@ -1,3 +1,7 @@
+* {
+  font-size: 26px;
+}
+
 .hide {
   display: none !important;
 }
@@ -6,6 +10,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin-bottom: 35px;
 }
 
 .quiz-intro {
@@ -28,11 +33,11 @@
 .options button {
   display: grid;
   grid-template-columns: repeat(1, auto);
-  gap: 20px;
-  margin: 20px 0;
+  margin: 25px 0;
   background-color: rgb(56, 91, 247);
   color: white;
   border-radius: 7px;
+  font-size: 20px;
 }
 
 .options button:hover {
