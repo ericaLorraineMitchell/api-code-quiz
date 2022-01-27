@@ -59,9 +59,12 @@ var answersIndex = 0;
 var optionsIndex = 0;
 
 var questionEl = document.getElementById("question");
-var optionButton = document.getElementById("option-btn");
+var optionButton1 = document.getElementById("option-btn-1");
+var optionButton2 = document.getElementById("option-btn-2");
+var optionButton3 = document.getElementById("option-btn-3");
+var userAnswer = document.getElementsByClassName("user-answer");
 var score = 0;
-
+// console.log(userAnswer[0]);
 var quizMessage = document.getElementById("quizMessage");
 
 var userInitials = document.getElementById("userInitials");
@@ -90,51 +93,98 @@ startButton.addEventListener("click", function () {
 
   startGame();
   showQuestion();
-  // showOptions();
+  showOptions();
+  // answerChoice();
 });
 
 //Show Question and Answer Options
 function showQuestion() {
   questionEl.textContent = quizQuestions[questionIndex].question;
 
-  optionButton.textContent =
-    quizQuestions[answersIndex].answers[optionsIndex].options;
+  // question.answers.forEach(answer => {
+  // for (var i = 0; i < quizQuestions.length; i++) {
+  //   // for (var j = 0; j < quizQuestions[i].length; j++) {
+  //   //   console.log(quizQuestions[i][j].question);
+  //   //   optionButton *= quizQuestions[i][j];
+  //   //
+}
+// console.log(quizQuestions[i].question);
 
-  for (var i = 0; i < quizQuestions.length; i++) {
-    for (var j = 0; j < quizQuestions[i].length; j++) {
-      console.log(quizQuestions[i][j].question);
-      optionButton *= quizQuestions[i][j];
-    }
-    // optionsIndex++;
-    // questionIndex++;
-    // console.log(quizQuestions[i].question);
-  }
-  // console.log(quizQuestions[questionIndex]);
-  // console.log(quizQuestions[questionIndex].question);
+// console.log(quizQuestions[questionIndex]);
+// console.log(quizQuestions[questionIndex].question);
+
+function showOptions() {
+  optionButton1.textContent = quizQuestions[answersIndex].answers[0].options;
+
+  optionButton2.textContent = quizQuestions[answersIndex].answers[1].options;
+
+  optionButton3.textContent = quizQuestions[answersIndex].answers[2].options;
 }
 
-// function showOptions() {
-//   optionButton.textContent =
-//     quizQuestions[answersIndex].answers[optionsIndex].options;
+// //Answer Message - Incorrect Answer Takes 10 secs From Timer
+optionButton1.addEventListener("click", function () {
+  if (
+    quizQuestions[answersIndex].answers[0].answer == true ||
+    quizQuestions[answersIndex].answers[1].answer == true ||
+    quizQuestions[answersIndex].answers[2].answer == true
+  ) {
+    quizMessage.textContent = "Correct Answer";
+  } else {
+    // console.log("incorrect");
+    quizMessage.textContent = "Incorrect";
 
-//   for (var i = 0; i < quizQuestions.length; i++) {
-//     // optionsIndex++;
-//     console.log(quizQuestions[i].answers[optionsIndex].options);
-//   }
-//   // console.log(quizQuestions[answersIndex].answers[optionsIndex].options);
-// }
+    timeLeft -= 10;
+    if (timeLeft <= 0) {
+      timeLeft = 0;
+    }
+    timerEl.textContent = timeLeft;
+  }
+});
 
-//Move to Next Question
-// optionsIndex++;
+optionButton2.addEventListener("click", function () {
+  if (
+    quizQuestions[answersIndex].answers[0].answer == true ||
+    quizQuestions[answersIndex].answers[1].answer == true ||
+    quizQuestions[answersIndex].answers[2].answer == true
+  ) {
+    quizMessage.textContent = "Correct Answer";
+  } else {
+    // console.log("incorrect");
+    quizMessage.textContent = "Incorrect";
+
+    timeLeft -= 10;
+    if (timeLeft <= 0) {
+      timeLeft = 0;
+    }
+    timerEl.textContent = timeLeft;
+  }
+});
+
+optionButton3.addEventListener("click", function () {
+  if (
+    quizQuestions[answersIndex].answers[0].answer == true ||
+    quizQuestions[answersIndex].answers[1].answer == true ||
+    quizQuestions[answersIndex].answers[2].answer == true
+  ) {
+    quizMessage.textContent = "Correct Answer";
+  } else {
+    // console.log("incorrect");
+    quizMessage.textContent = "Incorrect";
+
+    timeLeft -= 10;
+    if (timeLeft <= 0) {
+      timeLeft = 0;
+    }
+    timerEl.textContent = timeLeft;
+  }
+});
+
 // questionIndex++;
 
-//Answer Message - Incorrect Answer Takes 10 secs From Timer
-// if (answers == "true") {
-//   quizMessage.textContent = "Correct Answer";
-// } else {
-//   quizMessage.textContent = "Incorrect";
-//   timeLeft -= 10;
-// }
+//Move to Next Question
+// function checkAnswer() {}
+// optionsIndex++;
+// questionIndex++;
 //Save score with Timer at 0 with all questions answered
 
 // //Save initials and Timer score
