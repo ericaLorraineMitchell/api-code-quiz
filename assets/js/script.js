@@ -93,7 +93,7 @@ startButton.addEventListener("click", function () {
   startGame();
   showQuestion();
   showOptions();
-  nextQuestion();
+  // nextQuestion();
 });
 
 //Show Question and Answer Options
@@ -194,11 +194,11 @@ optionButton4.addEventListener("click", function (event) {
 //   }
 // });
 
-// Move to Next Question
-function nextQuestion() {
-  // userAnswer = quizQuestions[questionIndex].question++;
-  questionIndex++;
-}
+// // Move to Next Question
+// function nextQuestion() {
+//   // userAnswer = quizQuestions[questionIndex].question++;
+//   questionIndex++;
+// }
 
 // optionsIndex++;
 // questionIndex++;
