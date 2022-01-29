@@ -124,6 +124,9 @@ optionButton1.addEventListener("click", function (event) {
     }
     timerEl.textContent = timeLeft;
   }
+  questionIndex++;
+  showQuestion();
+  showOptions();
 });
 
 optionButton2.addEventListener("click", function (event) {
@@ -140,6 +143,9 @@ optionButton2.addEventListener("click", function (event) {
     }
     timerEl.textContent = timeLeft;
   }
+  questionIndex++;
+  showQuestion();
+  showOptions();
 });
 
 optionButton3.addEventListener("click", function (event) {
@@ -156,6 +162,9 @@ optionButton3.addEventListener("click", function (event) {
     }
     timerEl.textContent = timeLeft;
   }
+  questionIndex++;
+  showQuestion();
+  showOptions();
 });
 
 optionButton4.addEventListener("click", function (event) {
@@ -172,36 +181,14 @@ optionButton4.addEventListener("click", function (event) {
     }
     timerEl.textContent = timeLeft;
   }
+  completeQuiz();
 });
 
-// userAnswer.addEventListener("click", function (event) {
-//   userAnswer = event.target.textContent;
+function completeQuiz() {
+  quizContainer.classList.add("hide");
+  userScore.classList.add("show");
+}
 
-//   for (var i = 0; i < quizQuestions.length; i++) {
-//     quizQuestions[questionIndex].question++;
-//   }
-
-//   if (userAnswer === quizQuestions[questionIndex].answer) {
-//     quizMessage.textContent = "Correct Answer";
-//   } else {
-//     quizMessage.textContent = "Incorrect";
-
-//     timeLeft -= 10;
-//     if (timeLeft <= 0) {
-//       timeLeft = 0;
-//     }
-//     timerEl.textContent = timeLeft;
-//   }
-// });
-
-// // Move to Next Question
-// function nextQuestion() {
-//   // userAnswer = quizQuestions[questionIndex].question++;
-//   questionIndex++;
-// }
-
-// optionsIndex++;
-// questionIndex++;
 //Save score with Timer at 0 with all questions answered
 
 // //Save initials and Timer score
