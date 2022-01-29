@@ -11,60 +11,59 @@ var quizQuestions = [
   {
     question:
       "Which is the best practice for checking the functionality of your code as you build?",
-    answers: [
-      { options: "1. Ask a friend", answer: false },
-      { options: "2. Check the browser", answer: false },
-      { options: "3. Console.log your code", answer: true },
-    ],
+    option1: "1. Ask a friend",
+    option2: "2. Check the browser",
+    option3: "3. Console.log your code",
+    option4: "4. Look at W3Schools",
+    answer: "3. Console.log your code",
   },
 
   {
     question: "An array is what data type?",
-    answers: [
-      { options: "1. A list", answer: false },
-      { options: "2. An object", answer: true },
-      { options: "3. A string", answer: false },
-    ],
+    option1: "1. A list",
+    option2: "2. An object",
+    option3: "3. A string",
+    option4: "4. A boolean",
+    answer: "2. An object",
   },
 
   {
     question: "Which comparison operator means equal in value and type?",
-    answers: [
-      { options: "1. ==", answer: false },
-      { options: "2. =!", answer: false },
-      { options: "3. ===", answer: true },
-    ],
+    option1: "1. ==",
+    option2: "2. =!",
+    option3: "3. ===",
+    option4: "4. !==",
+    answer: "3. ===",
   },
 
   {
-    question: "Flex flow is shorthand for which two style elements?",
-    answers: [
-      { options: "1. flex-direction and flex-wrap", answer: true },
-      { options: "2. flex-wrap and flex-basis", answer: false },
-      { options: "3. flex-start and flex-end", answer: false },
-    ],
+    question: "Flex-flow is shorthand for which two style elements?",
+    option1: "1. flex-direction and flex-wrap",
+    option2: "2. flex-wrap and flex-basis",
+    option3: "3. flex-start and flex-end",
+    option4: "4. align-items and justify-content",
+    answer: "1. flex-direction and flex-wrap",
   },
 
   {
     question: "Which returns an array of attributes?",
-    answers: [
-      { options: "1. .document.querySelector", answer: false },
-      { options: "2. .getElementById", answer: false },
-      { options: "3. .document.querySelectorAll", answer: true },
-    ],
+    option1: "1. .document.querySelector",
+    option2: "2. .getElementsByClassName",
+    option3: "3. .getElementById",
+    option4: "4. .document.querySelectorAll",
+    answer: "4. .document.querySelectorAll",
   },
 ];
 var questionIndex = 0;
-var answersIndex = 0;
-var optionsIndex = 0;
 
 var questionEl = document.getElementById("question");
 var optionButton1 = document.getElementById("option-btn-1");
 var optionButton2 = document.getElementById("option-btn-2");
 var optionButton3 = document.getElementById("option-btn-3");
+var optionButton4 = document.getElementById("option-btn-4");
 var userAnswer = document.getElementsByClassName("user-answer");
 var score = 0;
-// console.log(userAnswer[0]);
+
 var quizMessage = document.getElementById("quizMessage");
 
 var userInitials = document.getElementById("userInitials");
@@ -94,43 +93,29 @@ startButton.addEventListener("click", function () {
   startGame();
   showQuestion();
   showOptions();
-  // answerChoice();
+  nextQuestion();
 });
 
 //Show Question and Answer Options
 function showQuestion() {
   questionEl.textContent = quizQuestions[questionIndex].question;
-
-  // question.answers.forEach(answer => {
-  // for (var i = 0; i < quizQuestions.length; i++) {
-  //   // for (var j = 0; j < quizQuestions[i].length; j++) {
-  //   //   console.log(quizQuestions[i][j].question);
-  //   //   optionButton *= quizQuestions[i][j];
-  //   //
 }
-// console.log(quizQuestions[i].question);
-
-// console.log(quizQuestions[questionIndex]);
-// console.log(quizQuestions[questionIndex].question);
 
 function showOptions() {
-  optionButton1.textContent = quizQuestions[answersIndex].answers[0].options;
-
-  optionButton2.textContent = quizQuestions[answersIndex].answers[1].options;
-
-  optionButton3.textContent = quizQuestions[answersIndex].answers[2].options;
+  optionButton1.textContent = quizQuestions[questionIndex].option1;
+  optionButton2.textContent = quizQuestions[questionIndex].option2;
+  optionButton3.textContent = quizQuestions[questionIndex].option3;
+  optionButton4.textContent = quizQuestions[questionIndex].option4;
 }
 
-// //Answer Message - Incorrect Answer Takes 10 secs From Timer
-optionButton1.addEventListener("click", function () {
-  if (
-    quizQuestions[answersIndex].answers[0].answer == true ||
-    quizQuestions[answersIndex].answers[1].answer == true ||
-    quizQuestions[answersIndex].answers[2].answer == true
-  ) {
+// Answer Message - Incorrect Answer Takes 10 secs From Timer
+
+optionButton1.addEventListener("click", function (event) {
+  userAnswer = event.target.textContent;
+
+  if (userAnswer === quizQuestions[questionIndex].answer) {
     quizMessage.textContent = "Correct Answer";
   } else {
-    // console.log("incorrect");
     quizMessage.textContent = "Incorrect";
 
     timeLeft -= 10;
@@ -141,15 +126,12 @@ optionButton1.addEventListener("click", function () {
   }
 });
 
-optionButton2.addEventListener("click", function () {
-  if (
-    quizQuestions[answersIndex].answers[0].answer == true ||
-    quizQuestions[answersIndex].answers[1].answer == true ||
-    quizQuestions[answersIndex].answers[2].answer == true
-  ) {
+optionButton2.addEventListener("click", function (event) {
+  userAnswer = event.target.textContent;
+
+  if (userAnswer === quizQuestions[questionIndex].answer) {
     quizMessage.textContent = "Correct Answer";
   } else {
-    // console.log("incorrect");
     quizMessage.textContent = "Incorrect";
 
     timeLeft -= 10;
@@ -160,15 +142,12 @@ optionButton2.addEventListener("click", function () {
   }
 });
 
-optionButton3.addEventListener("click", function () {
-  if (
-    quizQuestions[answersIndex].answers[0].answer == true ||
-    quizQuestions[answersIndex].answers[1].answer == true ||
-    quizQuestions[answersIndex].answers[2].answer == true
-  ) {
+optionButton3.addEventListener("click", function (event) {
+  userAnswer = event.target.textContent;
+
+  if (userAnswer === quizQuestions[questionIndex].answer) {
     quizMessage.textContent = "Correct Answer";
   } else {
-    // console.log("incorrect");
     quizMessage.textContent = "Incorrect";
 
     timeLeft -= 10;
@@ -179,10 +158,48 @@ optionButton3.addEventListener("click", function () {
   }
 });
 
-// questionIndex++;
+optionButton4.addEventListener("click", function (event) {
+  userAnswer = event.target.textContent;
 
-//Move to Next Question
-// function checkAnswer() {}
+  if (userAnswer === quizQuestions[questionIndex].answer) {
+    quizMessage.textContent = "Correct Answer";
+  } else {
+    quizMessage.textContent = "Incorrect";
+
+    timeLeft -= 10;
+    if (timeLeft <= 0) {
+      timeLeft = 0;
+    }
+    timerEl.textContent = timeLeft;
+  }
+});
+
+// userAnswer.addEventListener("click", function (event) {
+//   userAnswer = event.target.textContent;
+
+//   for (var i = 0; i < quizQuestions.length; i++) {
+//     quizQuestions[questionIndex].question++;
+//   }
+
+//   if (userAnswer === quizQuestions[questionIndex].answer) {
+//     quizMessage.textContent = "Correct Answer";
+//   } else {
+//     quizMessage.textContent = "Incorrect";
+
+//     timeLeft -= 10;
+//     if (timeLeft <= 0) {
+//       timeLeft = 0;
+//     }
+//     timerEl.textContent = timeLeft;
+//   }
+// });
+
+// Move to Next Question
+function nextQuestion() {
+  // userAnswer = quizQuestions[questionIndex].question++;
+  questionIndex++;
+}
+
 // optionsIndex++;
 // questionIndex++;
 //Save score with Timer at 0 with all questions answered
